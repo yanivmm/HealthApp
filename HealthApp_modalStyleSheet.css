@@ -1,0 +1,88 @@
+
+
+
+                  /* Modals Styling*/
+
+
+
+
+ /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+
+  position: sticky;
+
+  left: calc(50% - 100px);   /*  try 50%  */   /* Where to  ---  has to match the 'slideIn'-parameter */
+  top:200;
+
+  background-color: #fefefe;  /* White background*/
+  width: 200px;     /*How much place to take
+
+  /*Slide In*/
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.5s;
+  /*Acctually determine whtas happen for modal*/
+  animation-name: slideIn;         /*name to relate downwards -   @keyframes {name} */
+  animation-duration: 0.5s
+
+}
+
+ /* The Close Button */
+ .close_modal {
+   color: #aaa;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+ }
+
+ .close_modal:hover,
+ .close_modal:focus {
+   color: black;
+   text-decoration: none;
+   cursor: pointer;
+ }
+
+
+.modal-header {
+  text-align: center;   /*Can be done later on to every text element*/
+  padding: 2px 16px;
+  background-color: #685cb8;  /*secondary option : #5cb85c- light Green*/
+  color: white;
+}
+
+.modal-body {
+    padding: 16px 16px;
+    left: 20px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #685cb8;  /*secondary option : #5cb85c- light Green */
+  /* display: none; */
+  color: white;
+  text-align: center;
+}
+
+/* Add Animation -  critial...*/
+
+@keyframes slideIn {
+  from {left: -300px; opacity: 0}
+  to {left: calc(50% - 100px); opacity: 1}
+}

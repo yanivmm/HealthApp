@@ -1,0 +1,25 @@
+
+
+.carousel-caption{top:30%;
+                 font-size: 250%;
+                 -webkit-text-stroke: 1px black;
+               }
+
+
+img:hover{
+  height: auto;
+      padding: 15px;
+}
+
+
+
+/* Modal 3 */
+#modal3Header,
+#modal3Footer{
+  background-color: #5cb85c;
+}
+
+#primaryButton{
+  background-color: #8cb9d1;
+  color: #8cb9d1;
+}
