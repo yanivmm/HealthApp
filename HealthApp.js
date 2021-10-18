@@ -7,7 +7,7 @@ var modal2 = document.getElementById("modal2");
 var modal3 = document.getElementById("modal3");
 
 var Modals = document.getElementsByClassName("modal");
-var span = document.getElementsByClassName("close_modal");
+var spans = document.getElementsByClassName("close_modal");
 
 // proprties of father modal
 var modalHead = document.getElementById("modalHead");
@@ -16,43 +16,47 @@ var modal2Head  =  document.getElementById("modal2Head");
 var modal3Body = document.getElementById("modal3Body");
 var quantityLabel = document.getElementById("quantityLabel"); //grams
 
+function closeModals(){
+  for (const modal of Modals){
+  modal.style.display = "none";
+}
+}
+
+
+// Radios buttons
+exp =   `<input type="number" id="quantity" max="400" step="10">`
+exp2 =  `<input type="number" id="quantity" max="5">`
 
 
 
-// // Radios buttons
-// exp =   `<input type="number" id="gramsQuantity" max="400" step="10">`
-// exp2 =  `<input type="number" id="gramsQuantity" max="5">`
-//
-// $("#optionsRadios3").click(function() {
-//       $("#quantity").innerHTML = exp;
-// });
-// $("#optionsRadios2").click(function() {
-//       $("#quantity").innerHTML = exp2;
-// });
-// $("#optionsRadios1").click(function() {
-//       $("#quantity").innerHTML = exp2;
-// });
 
-// var addFoodButton = document.getElementById("addFoodButton")
-// addFoodButton.addEventListener("click",function(){
-//   // take current parameters to other screen
-// })
+$("#optionsRadios3")[0].click(function() {
+      $("#quantity")[0].innerHTML = exp;
+});
+$("#optionsRadios2")[0].click(function() {
+      $("#quantity")[0].innerHTML = exp2;
+});
+$("#optionsRadios1")[0].click(function() {
+      $("#quantity")[0].innerHTML = exp2;
+});
+
+var addFoodButton = document.getElementById("addFoodButton")
+addFoodButton.addEventListener("click",function(){
+  closeModals()
+})
 
 
 // When the user clicks on <span> (x), close the modal
-for (const spanButton of span) {
+for (const span of spans) {
 
-  spanButton.addEventListener("click",function(){
-    for (const modal of Modals){
-    modal.style.display = "none";
-
-  }
+  span.addEventListener("click",function(){
+    closeModals()
   })}
 
 // When the user clicks anywhere outside of the modal, close it
 window.addEventListener("click",function(event) {
   if (event.target == modal) {
-    modal.style.display = "none";
+    closeModals()
   }})
 
 
@@ -91,10 +95,10 @@ function foodsListProcessor(mainFood){
   }
 }
   if (mainFood =="משקאות") {
-    html_Chainer = `<h6>משקאות קלים</h6><p>ממותק</p><p>מים בטעמים</p><p>נקטר</p>
-    <h6>משקאות מוגזים</h6><p>קולה/ספרייט/פאנטה</p><p>קולה/ספרייט/פאנטה <em>זירו<em></p><p>ממותק עדין</p><p>XL/BLU/Red-bull</p>
-    <h6>חלב/סויה</h6><p>חלב</p><p>סויה/שקדים/ אורגני</p><p>סויה ממותק</p><p>יוגורט  טבעי</p>
-    <h6>אלכוהול</h6><p>בירה</p><p>וודקה</p><p>(~13%)יין</p><p>יין עדין</p><p>תירוש(מיץ ענבים טבעי)</p>;`
+    html_Chainer = `<h4>משקאות קלים</h4><p>ממותק</p><p>מים בטעמים</p><p>נקטר</p>
+    <h4>משקאות מוגזים</h4><p>קולה/ספרייט/פאנטה</p><p>קולה/ספרייט/פאנטה <em>זירו<em></p><p>ממותק עדין</p><p>XL / BLU / Red-bull</p>
+    <h4>חלב/סויה</h4><p>חלב</p><p>סויה/שקדים/ אורגני</p><p>סויה ממותק</p><p>יוגורט  טבעי</p>
+    <h4>אלכוהול</h4><p>בירה</p><p>וודקה</p><p>(~13%)יין</p><p>יין עדין</p><p>תירוש(מיץ ענבים טבעי)</p>;`
   }
 
   return html_Chainer;
@@ -113,7 +117,7 @@ for (const im of images) {
       modalHead.textContent = mainFood;
       modalBody.innerHTML = foodsListProcessor(mainFood)
 
-      pTags = modalBody.innerHTML.getElementsByTagName("p");
+      pTags = document.getElementById("modalBody").getElementsByTagName("p");
       for(const ptag of pTags){
         ptag.addEventListener("click",function(){
             modal.style.display = "none";
@@ -121,26 +125,9 @@ for (const im of images) {
             modal2Head.textContent = mainFood + "=>" + ptag.textContent.trim() ; //the child food
 
       }
-      // activateModalFoodsClicker(modalBody.innerHTML,mainFood)
   )
 }})}
 
 
-// Shaping food list
-// button the childFoods
 
-/*
-function activateModalFoodsClicker(modalBodyInnerHTML,mainFood){
-var childFoods = modalBodyInnerHTML.getElementsByTagName("p")
 
-for (const food of childFoods) {
-  food.addEventListener("click",function(){
-      modal.style.display = "none";
-      modal2.style.display = "block";
-      modal2Head.textContent = mainFood + "=>" + this.textContent ; //the child food
-
-  })
-}
-
-}
-*/
